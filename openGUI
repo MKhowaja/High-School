@@ -1,0 +1,119 @@
+import java.awt.EventQueue;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.SwingUtilities;
+import javax.swing.filechooser.*;
+import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import java.awt.Button;
+import javax.swing.JMenuItem;
+import java.io.*;
+import java.awt.*;
+
+
+public class Marks extends JPanel implements ActionListener{
+
+  private JFrame frame;
+	static private String newline = "\n";
+    private JTextArea log;
+    private JFileChooser fc;
+    public Marks() {
+    	initialize();
+        //super(new BorderLayout());
+    }
+    /**
+	 * Launch the application.
+	 */
+    public void actionPerformed(ActionEvent e) {
+        //Set up the file chooser.
+    	if (fc == null) {
+            fc = new JFileChooser();
+ 
+        //Add a custom file filter and disable the default
+        //(Accept All) file filter.
+            fc.addChoosableFileFilter(new ImageFilter());
+            fc.setAcceptAllFileFilterUsed(false);
+ 
+        //Add custom icons for file types.
+            fc.setFileView(new ImageFileView());
+ 
+        //Add the preview pane.
+            fc.setAccessory(new ImagePreview(fc));
+        }
+ 
+        //Show it.
+        int returnVal = fc.showDialog(Marks.this,"Open File");
+ 
+        //Process the results.
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            log.append("Attaching file: " + file.getName()
+                       + "." + newline);
+        } else {
+            log.append("Attachment cancelled by user." + newline);
+        }
+        log.setCaretPosition(log.getDocument().getLength());
+ 
+        //Reset the file chooser for the next time it's shown.
+        fc.setSelectedFile(null);
+    }
+ 
+    public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Marks window = new Marks();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame("Marks");
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//Create the log first, because the action listener
+        //needs to refer to it.
+        log = new JTextArea(5,20);
+        log.setMargin(new Insets(5,5,5,5));
+        log.setEditable(false);
+        JScrollPane logScrollPane = new JScrollPane(log);
+ 
+        JButton sendButton = new JButton("Attach...");
+        sendButton.addActionListener(this);
+ 
+        add(sendButton, BorderLayout.PAGE_START);
+        add(logScrollPane, BorderLayout.CENTER);
+		JMenuBar menuBar = new JMenuBar();
+		frame.setJMenuBar(menuBar);
+		
+		JMenu mnFile = new JMenu("File");
+		menuBar.add(mnFile);
+		
+		JMenuItem mntmOpen = new JMenuItem("Open");
+		mnFile.add(mntmOpen);		mntmOpen.addActionListener(this);
+		//frame.add(new Marks());
+		
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mnFile.add(mntmExit);
+		
+		JMenu mnHelp = new JMenu("Help");
+		menuBar.add(mnHelp);
+		
+		JMenuItem mntmAbout = new JMenuItem("About");
+		mnHelp.add(mntmAbout);
+        //Schedule a job for the event dispatch thread:
+        //creating and showing this application's GUI.
+	}
+}
