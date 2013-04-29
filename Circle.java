@@ -1,5 +1,5 @@
 //An object circle
-public class Circle2 {
+public class Circle {
   double x; //x co-ordinate
 	double y; //y co-ordinate
 	double r; //radius
