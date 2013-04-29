@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Sin num {
+public class Sinnum {
   public static void main(String[] args) {
 		int sin, sum=0, temp; //Variables created for the sin number, sum of digits and a temporary variable to store digits
 		final int END=999999999; //Constant variable to store exit loop condition
