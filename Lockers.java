@@ -1,4 +1,4 @@
-public class Assignment {
+public class Lockers {
   public static void main(String[] args) {
 		boolean [] locker = new boolean [1024];//Array to hold lockers 0-1023 initialized to all be closed
 		for (int i = 1; i<=1024; i++){//Person (i) goes through the lockers
