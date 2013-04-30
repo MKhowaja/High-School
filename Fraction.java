@@ -1,4 +1,4 @@
-//Creating an object Fraction
+//Creating an object type Fraction
 public class Fraction {
   int num;
 	int den;
