@@ -1,0 +1,12 @@
+Assignment - Repetition
+
+In the nine-digit Social Insurance Number given to each person having a job or filing an income tax return in Canada, the ninth digit is a check digit that is used to test the validity of the other digits in the SIN. The ninth digit is determined by the following procedure.
+
+a)  Double the 2nd, 4th, 6th, and 8th digits.
+•	If the result is two digits long, add the digits together
+b)	Add the digits of the numbers found in step (a).
+c)	Add the 1st, 3rd, 5th, and 7th digits
+d)	Add the numbers found in steps (b) and (c).
+e)	Subtract the unit (ones digit) digit of the result of step (d) from 10 and note the units digit of the result. For the SIN to be valid, its ninth digit must have this value.
+
+Write a program that repeatedly reads nine-digit numbers and determines whether or not each number is a valid SIN, The program should stop when it reads the value 999999999.
