@@ -1,11 +1,46 @@
 public class Table {
-  private double height;
-  private double length;
+  	private double height;
+  	private double length;
 	private double width;
 	private int legs;
 	private double weight;
 	private String shape;
 	private String colour;
+	
+	public Table (double h, double len, double wid, int leg, double w, String s, String c){
+		if (len < 0){
+			len = Math.abs(len);
+		}
+		if (wid < 0){
+			wid = Math.abs(len);
+		}
+		if (h < 0){
+			h = Math.abs(len);
+		}
+		if (leg < 0){
+			leg = Math.abs(leg);
+		}
+		if (w < 0){
+			w = Math.abs(w);
+		}
+		length = len;
+		width = wid;
+		height = h;
+		legs = leg;
+		weight = w;
+		shape = s;
+		colour = c;
+	}
+	
+	public Table (Table x){
+		length = x.getLength();
+		width = x.getWidth();
+		height = x.getHeight();
+		legs = x.getLegs();
+		weight = x.getWeight();
+		shape = x.getShape();
+		colour = x.getColour();
+	}
 
 	public double getHeight(){
 		return height;
