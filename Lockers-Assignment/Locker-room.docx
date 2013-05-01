@@ -1,0 +1,20 @@
+Locker Room problem 
+
+The Problem
+
+A locker room has lockers numbered 0,1,2,...,1023 . All lockers are initially closed. The first person walks in and flips every locker The 2nd person flips every other locker (starting at 0) The 3rd person flips every third locker (starting at 0) . . . The 1024 person flips every 1024 locker (starting at 0) At the end, which lockers are open and which are closed? 
+
+The Program
+
+Write a program that creates an array of 1023 indices of type Boolean. Each index will represent a locker. You may assume that when the Boolean value is false, the locker is closed and when the value is true, the locker is open. This program will determine which lockers are open and closed at the end of the procedure above.
+
+The Output 
+
+The Output for this program should illustrate the locker number along with a string indicating whether the locker is open or closed. 
+Sample Output
+1 open
+2 closed
+3 open
+4 open
+……
+1023 closed
