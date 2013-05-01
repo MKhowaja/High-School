@@ -1,5 +1,5 @@
 public class Rectangle {
-  private int left;
+	private int left;
 	private int bottom;
 	private int width;
 	private int height;
