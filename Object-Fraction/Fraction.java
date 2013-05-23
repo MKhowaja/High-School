@@ -1,6 +1,6 @@
 //Creating an object type Fraction
 public class Fraction {
-  int num;
+  	int num;
 	int den;
 	public double size () {
 		return Math.abs((double)num/den);
